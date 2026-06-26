@@ -7,13 +7,13 @@ const portfolioData = {
     "email": "obasha998@gmail.com",
     "summary": "AI Engineer and Data Scientist focused on designing applied AI systems across machine learning, deep learning, computer vision, natural language processing, predictive analytics, and data visualization. I build research-backed solutions that connect models, data, software, and user-facing products.",
     "links": {
-  "LinkedIn": "https://www.linkedin.com/in/omar-khaled-87378a2ba/",
-  "GitHub": "https://github.com/omarbasha19",
-  "Google Scholar": "https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AIqSsVvh5v5110BUPieZFRdAdec2RjdLcirPzgQc9IwFH-DR0Jtt-LOoLI6KSxPut3GOpx6khq3tp6IBbEanGw&user=VA4OFa4AAAAJ",
-  "ORCID": "https://orcid.org/0009-0004-8748-4622",
-  "ResearchGate": "https://www.researchgate.net/profile/Omar-Khaled-65?ev=hdr_xprf",
-  "Phone": "tel:+201092001947",
-  "WhatsApp": "https://wa.me/201092001947"
+          "LinkedIn": "https://www.linkedin.com/in/omar-khaled-87378a2ba/",
+          "GitHub": "https://github.com/omarbasha19",
+          "Google Scholar": "https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AIqSsVvh5v5110BUPieZFRdAdec2RjdLcirPzgQc9IwFH-DR0Jtt-LOoLI6KSxPut3GOpx6khq3tp6IBbEanGw&user=VA4OFa4AAAAJ",
+          "ORCID": "https://orcid.org/0009-0004-8748-4622",
+          "ResearchGate": "https://www.researchgate.net/profile/Omar-Khaled-65?ev=hdr_xprf",
+          "Phone": "tel:+201092001947",
+          "WhatsApp": "https://wa.me/201092001947"
 },
     "metrics": [
       {
