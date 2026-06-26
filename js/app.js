@@ -22,7 +22,7 @@
   };
 
   const linkDescriptor = name => ({
-    LinkedIn: 'Professional profile',
+    LinkedIn: ,
     GitHub: 'Code portfolio',
     ORCID: 'Research identity',
     'Google Scholar': 'Academic profile',
