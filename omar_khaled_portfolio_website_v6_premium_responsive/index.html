@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omar Khaled | AI Engineer & Data Scientist</title>
+  <meta name="description" content="Portfolio of Omar Khaled, AI Engineer and Data Scientist focused on machine learning, data science, computer vision, NLP, applied research, and intelligent products." />
+  <meta name="theme-color" content="#f7f5ef" />
+  <meta property="og:title" content="Omar Khaled | AI Engineer & Data Scientist" />
+  <meta property="og:description" content="Applied AI projects, publications, skills, and selected engineering work." />
+  <meta property="og:type" content="website" />
+  <link rel="preload" as="image" href="assets/omar-khaled-profile.jpg" />
+  <link rel="preload" as="image" href="assets/academy-logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Omar Khaled",
+    "jobTitle":"Artificial Intelligence Engineer and Data Scientist",
+    "address":{"@type":"PostalAddress","addressLocality":"Alexandria","addressCountry":"Egypt"},
+    "sameAs":[
+      "https://www.linkedin.com/in/omar-khaled-87378a2ba/",
+      "https://github.com/omarbasha19",
+      "https://orcid.org/0009-0004-8748-4622",
+      "https://www.researchgate.net/profile/Omar-Khaled-65",
+      "https://scholar.google.com/citations?user=VA4OFa4AAAAJ"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Omar Khaled home">
+        <span class="brand-mark"><img src="assets/academy-logo.png" alt="AASTMT logo"></span>
+        <span class="brand-copy"><strong>Omar Khaled</strong><small>AI Engineer · Data Scientist</small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-panel" id="navPanel">
+        <a href="#work">Work</a>
+        <a href="#research">Research</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">Dark</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Artificial Intelligence · Data Science · Applied Research</p>
+          <h1>AI Engineer & Data Scientist building intelligent systems from data, vision, and language.</h1>
+          <p class="lead" id="heroSummary"></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#work">View Selected Work</a>
+            <a class="btn" href="assets/omar-khaled-cv.pdf" download>Download CV</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel reveal" aria-label="Profile card">
+          <div class="portrait-card">
+            <div class="portrait-shine" aria-hidden="true"></div>
+            <img class="portrait" src="assets/omar-khaled-profile.jpg" alt="Omar Khaled professional portrait" />
+            <div class="academy-chip">
+              <span class="chip-logo"><img src="assets/academy-logo.png" alt="AASTMT"></span>
+              <span><strong>AASTMT</strong><small>Artificial Intelligence · Data Science</small></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container social-dock reveal" id="profileLinks" aria-label="Professional links"></div>
+      <div class="container metric-row reveal" id="stats"></div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Applied AI projects with clear outcomes.</h2>
+          <p>Focused, measurable, and easy to scan. Each card links to the original repository.</p>
+        </div>
+        <div class="projects" id="featuredProjects"></div>
+        <div class="archive reveal">
+          <div class="archive-top">
+            <div>
+              <h3>Project Archive</h3>
+              <p>More projects without crowding the main view.</p>
+            </div>
+            <button class="btn small" id="toggleArchive" type="button">Show Archive</button>
+          </div>
+          <div class="archive-panel" id="archivePanel" hidden>
+            <input id="projectSearch" type="search" placeholder="Search by project, field, or tool" autocomplete="off" />
+            <div class="filters" id="filterRow"></div>
+            <div class="archive-grid" id="archiveGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="research">
+      <div class="container split">
+        <div class="section-head reveal sticky-copy">
+          <p class="eyebrow">Publications</p>
+          <h2>Research across vision, biometrics, and intelligent optimization.</h2>
+          <p>DOI-linked work in MDPI, ICEENG, and IEEE ICMISI contexts.</p>
+        </div>
+        <div class="publication-list" id="publicationList"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container split">
+        <div class="section-head reveal sticky-copy">
+          <p class="eyebrow">Technical Skills</p>
+          <h2>Stack for machine learning, analytics, and product delivery.</h2>
+          <p>Grouped for quick reading on desktop and mobile.</p>
+        </div>
+        <div class="skill-grid" id="skillsList"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Education</p>
+          <h2>Academic foundation in Artificial Intelligence.</h2>
+        </div>
+        <div class="education-card reveal" id="educationCard"></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container split">
+        <div class="section-head reveal sticky-copy">
+          <p class="eyebrow">Experience</p>
+          <h2>Internships, collaboration, and leadership.</h2>
+          <p>Technical work supported by communication, coordination, and event experience.</p>
+        </div>
+        <div>
+          <div class="timeline" id="experienceList"></div>
+          <h3 class="subhead">Leadership & Volunteering</h3>
+          <div class="timeline compact" id="leadershipList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="credentials">
+      <div class="container split">
+        <div class="section-head reveal sticky-copy">
+          <p class="eyebrow">Credentials</p>
+          <h2>Selected certificates.</h2>
+        </div>
+        <div class="cert-grid" id="certGrid"></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to AI, data science, machine learning, and applied research opportunities.</h2>
+          <p>Available for roles that combine modeling, analytics, software integration, and product-minded execution.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" id="emailAction" href="#">Email Omar</a>
+          <a class="btn" href="assets/omar-khaled-cv.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Omar Khaled</span>
+      <div id="footerLinks" class="footer-links"></div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
