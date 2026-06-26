@@ -619,7 +619,7 @@ const portfolioData = {
     },
     {
       "title": "Deep CNN and SimpleRNN Architectures for Bi-Handed Arabic Alphabet Hand-Gesture Recognition",
-      "venue": "ICEENG",
+      "venue": "ICEENG, IEEE",
       "year": "2026",
       "doi": "10.5281/zenodo.20161073",
       "url": "https://doi.org/10.5281/zenodo.20161073",
