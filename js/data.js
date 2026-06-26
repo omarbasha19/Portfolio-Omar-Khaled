@@ -100,7 +100,7 @@ const portfolioData = {
       "Excellent with Honors",
       "Ranked 1st in Data Science Department",
       "Graduation Project Grade: Excellent",
-      "Expected Graduation: Aug 2026"
+      "Graduated: Aug 2026"
     ]
   },
   "projects": [
