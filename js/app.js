@@ -22,11 +22,11 @@
   };
 
   const linkDescriptor = name => ({
-    LinkedIn: ,
-    GitHub: ,
-    ORCID: ,
-    'Google Scholar': ,
-    ResearchGate: 
+    LinkedIn: 'LinkedIn Profile' ,
+    GitHub:'GitHub Profile' ,
+    ORCID: 'ORCID Profile',
+    'Google Scholar':'Scholar Profile' ,
+    ResearchGate: 'ResearchGate Profile'
   }[name] || 'Profile');
 
   const icons = {
