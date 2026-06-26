@@ -2,7 +2,7 @@
 
 A fast, responsive, and professional portfolio website for Omar Khaled, an Artificial Intelligence Engineer and Data Scientist focused on applied AI, data science, computer vision, natural language processing, predictive analytics, and research-driven systems.
 
-Live website: https://fancy-youtiao-b091ac.netlify.app
+Live website: [https://fancy-youtiao-b091ac.netlify.app](https://omarbasha19.github.io/Portfolio-Omar-Khaled/)
 
 ## Overview
 
