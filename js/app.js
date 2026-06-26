@@ -23,10 +23,10 @@
 
   const linkDescriptor = name => ({
     LinkedIn: ,
-    GitHub: 'Code portfolio',
-    ORCID: 'Research identity',
-    'Google Scholar': 'Academic profile',
-    ResearchGate: 'Research network'
+    GitHub: ,
+    ORCID: ,
+    'Google Scholar': ,
+    ResearchGate: 
   }[name] || 'Profile');
 
   const icons = {
