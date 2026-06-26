@@ -5,18 +5,25 @@
   const esc = (v = '') => String(v).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 
   const logos = {
-    LinkedIn: {src:'assets/linkedin-logo.png', wide:false},
-    GitHub: {src:'assets/github-logo.png', wide:true},
-    ORCID: {src:'assets/orcid-logo.png', wide:true},
-    'Google Scholar': {src:'assets/scholar-logo.png', wide:true},
-    ResearchGate: {src:'assets/researchgate-logo.png', wide:false}
-  };
+  LinkedIn: {src:'assets/linkedin-logo.png', wide:false},
+  GitHub: {src:'assets/github-logo.png', wide:true},
+  ORCID: {src:'assets/orcid-logo.png', wide:true},
+  'Google Scholar': {src:'assets/scholar-logo.png', wide:true},
+  ResearchGate: {src:'assets/researchgate-logo.png', wide:false},
+  Phone: {text:'CALL', wide:false},
+  WhatsApp: {text:'WA', wide:false}
+};
 
   const linkDescriptor = name => ({
-    LinkedIn:'Professional profile', GitHub:'Code portfolio', ORCID:'Research identity',
-    'Google Scholar':'Academic profile', ResearchGate:'Research network'
-  }[name] || 'Profile');
-
+  LinkedIn:'Professional profile',
+  GitHub:'Code portfolio',
+  ORCID:'Research identity',
+  'Google Scholar':'Academic profile',
+  ResearchGate:'Research network',
+  Phone:'Direct call',
+  WhatsApp:'Message me'
+}[name] || 'Profile');
+  
   const icons = {
     skill: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 6.2v11.6L12 22l8-4.2V6.2L12 2Zm0 2.25 5.9 3.1L12 10.45 6.1 7.35 12 4.25Zm-6 5L11 12v7.2l-5-2.62V9.25Zm7 9.95V12l5-2.75v7.33l-5 2.62Z"/></svg>',
     cert: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-4 12.74V22l4-2 4 2v-7.26A7 7 0 0 0 12 2Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm-2 12.7c.63.2 1.3.3 2 .3s1.37-.1 2-.3v2.06l-2-1-2 1V16.7Z"/></svg>'
@@ -27,7 +34,7 @@
   function renderProfile() {
     $('#heroSummary').textContent = data.profile.summary;
     $('#emailAction').href = `mailto:${data.profile.email}`;
-    const linkOrder = ['LinkedIn', 'GitHub', 'ORCID', 'Google Scholar', 'ResearchGate'];
+    const linkOrder = ['LinkedIn', 'GitHub', 'ORCID', 'Google Scholar', 'ResearchGate', 'Phone', 'WhatsApp'];
     $('#profileLinks').innerHTML = linkOrder.map(name => {
       const url = data.profile.links[name];
       if (!url) return '';
