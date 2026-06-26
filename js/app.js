@@ -1,387 +1,47 @@
-(() => {
-const data = window.portfolioData || portfolioData;
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const esc = (v = '') => String(v).replace(/[&<>'"]/g, c => ({
-'&': '&',
-'<': '<',
-'>': '>',
-"'": ''',
-'"': '"'
-}[c]));
-
-const logos = {
-LinkedIn: { src: 'assets/linkedin-logo.png', wide: false },
-GitHub: { src: 'assets/github-logo.png', wide: true },
-ORCID: { src: 'assets/orcid-logo.png', wide: true },
-'Google Scholar': { src: 'assets/scholar-logo.png', wide: true },
-ResearchGate: { src: 'assets/researchgate-logo.png', wide: false }
-};
-
-const linkDescriptor = name => ({
-LinkedIn: 'Professional profile',
-GitHub: 'Code portfolio',
-ORCID: 'Research identity',
-'Google Scholar': 'Academic profile',
-ResearchGate: 'Research network'
-}[name] || 'Profile');
-
-const icons = {
-skill: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 4 6.2v11.6L12 22l8-4.2V6.2L12 2Zm0 2.25 5.9 3.1L12 10.45 6.1 7.35 12 4.25Zm-6 5L11 12v7.2l-5-2.62V9.25Zm7 9.95V12l5-2.75v7.33l-5 2.62Z"/></svg>',
-cert: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-4 12.74V22l4-2 4 2v-7.26A7 7 0 0 0 12 2Zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm-2 12.7c.63.2 1.3.3 2 .3s1.37-.1 2-.3v2.06l-2-1-2 1V16.7Z"/></svg>'
-};
-
-const state = {
-query: '',
-category: 'All',
-archiveOpen: false
-};
-
-function renderProfile() {
-$('#heroSummary').textContent = data.profile.summary;
-$('#emailAction').href = `mailto:${data.profile.email}`;
-
-```
-const profileLinkOrder = [
-  'LinkedIn',
-  'GitHub',
-  'ORCID',
-  'Google Scholar',
-  'ResearchGate'
-];
-
-$('#profileLinks').innerHTML = profileLinkOrder.map(name => {
-  const url = data.profile.links[name];
-  if (!url) return '';
-
-  const logo = logos[name];
-
-  return `<a class="profile-link" href="${esc(url)}" target="_blank" rel="noreferrer" aria-label="${esc(name)}">
-    <span class="logo-box${logo.wide ? ' word' : ''}">
-      <img src="${esc(logo.src)}" alt="${esc(name)} logo" loading="lazy">
-    </span>
-    <span>
-      <strong>${esc(name)}</strong>
-      <span>${esc(linkDescriptor(name))}</span>
-    </span>
-  </a>`;
-}).join('');
-
-$('#footerLinks').innerHTML = profileLinkOrder
-  .filter(k => data.profile.links[k])
-  .map(k => `<a href="${esc(data.profile.links[k])}" target="_blank" rel="noreferrer">${esc(k)}</a>`)
-  .join('');
-
-$('#stats').innerHTML = data.profile.metrics
-  .map(m => `<article class="metric-card"><strong>${esc(m.value)}</strong><span>${esc(m.label)}</span></article>`)
-  .join('');
-
-renderContactButtons();
-```
-
+.contact-extra {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
 }
 
-function renderContactButtons() {
-const emailButton = $('#emailAction');
-if (!emailButton) return;
-
-```
-const actions = emailButton.parentElement;
-if (!actions) return;
-
-$$('.contact-extra', actions).forEach(btn => btn.remove());
-
-const whatsappUrl = data.profile.links.WhatsApp;
-const phoneUrl = data.profile.links.Phone;
-
-const whatsappIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="currentColor" d="M12.04 2C6.55 2 2.08 6.47 2.08 11.96c0 1.76.46 3.48 1.34 5L2 22l5.18-1.36a9.9 9.9 0 0 0 4.86 1.24h.01c5.49 0 9.96-4.47 9.96-9.96C22 6.47 17.53 2 12.04 2Zm0 18.18h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.07.8.82-2.99-.2-.31a8.18 8.18 0 1 1 6.94 3.82Zm4.49-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.56.12-.17.25-.65.8-.8.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.09s.9 2.42 1.03 2.59c.12.17 1.77 2.7 4.3 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
-</svg>`;
-
-const phoneIcon = `<svg viewBox="0 0 24 24" aria-hidden="true">
-  <path fill="currentColor" d="M6.62 10.79a15.1 15.1 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/>
-</svg>`;
-
-const buttons = [
-  whatsappUrl ? `<a class="btn contact-extra contact-whatsapp" href="${esc(whatsappUrl)}" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-    ${whatsappIcon}
-    <span>WhatsApp</span>
-  </a>` : '',
-  phoneUrl ? `<a class="btn contact-extra contact-phone" href="${esc(phoneUrl)}" aria-label="Call">
-    ${phoneIcon}
-    <span>Call</span>
-  </a>` : ''
-].join('');
-
-emailButton.insertAdjacentHTML('afterend', buttons);
-```
-
+.contact-extra svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
 }
 
-function renderSkills() {
-const order = [
-'Programming',
-'AI & Machine Learning',
-'Computer Vision & NLP',
-'Statistics & Data Science',
-'Libraries & Tools',
-'Backend & Databases'
-];
-
-```
-$('#skillsList').innerHTML = order
-  .filter(k => data.skills[k])
-  .map(group => `<article class="skill-card reveal">
-    <h3>${icons.skill}${esc(group)}</h3>
-    <div class="tags">
-      ${data.skills[group].map(s => `<span class="tag">${esc(s)}</span>`).join('')}
-    </div>
-  </article>`)
-  .join('');
-```
-
+.contact-whatsapp {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #ffffff !important;
 }
 
-function renderEducation() {
-const e = data.education;
-
-```
-$('#educationCard').innerHTML = `<div class="education-top">
-  <div class="edu-title">
-    <img src="assets/academy-logo.png" alt="AASTMT logo" loading="lazy">
-    <div>
-      <h3>${esc(e.school)}</h3>
-      <p>${esc(e.degree)}</p>
-    </div>
-  </div>
-  <span class="edu-meta">${esc(e.location)} · ${esc(e.period)}</span>
-</div>
-<div class="highlight-grid">
-  ${e.highlights.map(h => `<span class="highlight">${esc(h)}</span>`).join('')}
-</div>`;
-```
-
+.contact-whatsapp:hover {
+  background: #1ebe5d !important;
+  border-color: #1ebe5d !important;
+  transform: translateY(-1px);
 }
 
-const projectCard = (p, index) => `<article class="project-card reveal" style="--i:${index}">     <div class="card-meta">       <span>${esc(p.category)}</span>       <span>${esc(p.date)}</span>     </div>     <h3><a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.title)}</a></h3>     <p>${esc(p.summary)}</p>     <div class="impact-row">
-      ${(p.impact || []).slice(0, 3).map(i => `<span class="impact">${esc(i)}</span>`).join('')}     </div>     <div class="tags">
-      ${(p.stack || []).slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join('')} </div> <a class="project-link" href="${esc(p.url)}" target="_blank" rel="noreferrer">Open repository →</a>
-
-  </article>`;
-
-const archiveItem = p => `<a class="archive-item" href="${esc(p.url)}" target="_blank" rel="noreferrer">     <strong>${esc(p.title)}</strong>     <span>${esc(p.category || 'Project')} · ${(p.stack || []).slice(0, 3).map(esc).join(', ')}</span>   </a>`;
-
-function allArchiveProjects() {
-const featured = new Set(
-data.projects
-.filter(p => p.featured)
-.map(p => p.title.toLowerCase().trim())
-);
-
-```
-const merged = [
-  ...data.projects.filter(p => !p.featured),
-  ...(data.otherRepos || [])
-];
-
-const seen = new Set();
-
-return merged.filter(p => {
-  const key = (p.title || '').toLowerCase().trim();
-  if (!key || featured.has(key) || seen.has(key)) return false;
-  seen.add(key);
-  return true;
-});
-```
-
+.contact-phone {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.16) !important;
 }
 
-function renderProjects() {
-$('#featuredProjects').innerHTML = data.projects
-.filter(p => p.featured)
-.slice(0, 3)
-.map(projectCard)
-.join('');
-
-```
-const categories = [
-  'All',
-  ...new Set(allArchiveProjects().map(p => p.category).filter(Boolean))
-].slice(0, 9);
-
-$('#filterRow').innerHTML = categories
-  .map(c => `<button class="filter-btn${c === state.category ? ' active' : ''}" data-category="${esc(c)}" type="button">${esc(c)}</button>`)
-  .join('');
-
-renderArchive();
-```
-
+.contact-phone:hover {
+  background: #f8fafc !important;
+  transform: translateY(-1px);
 }
 
-function renderArchive() {
-const q = state.query.toLowerCase().trim();
-
-```
-const items = allArchiveProjects()
-  .filter(p => {
-    const okCat = state.category === 'All' || p.category === state.category;
-    const hay = [p.title, p.category, ...(p.stack || [])].join(' ').toLowerCase();
-    return okCat && (!q || hay.includes(q));
-  })
-  .slice(0, 24);
-
-$('#archiveGrid').innerHTML = items.length
-  ? items.map(archiveItem).join('')
-  : '<p>No matching projects.</p>';
-```
-
+[data-theme="dark"] .contact-phone {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
 }
 
-function renderPublications() {
-$('#publicationList').innerHTML = data.publications
-.map(p => `<article class="publication-card reveal">         <div>           <h3><a href="${esc(p.url)}" target="_blank" rel="noreferrer">${esc(p.title)}</a></h3>           <p>${esc(p.venue)} · ${esc(p.year)} · ${esc(p.area)}</p>         </div>         <div class="pub-side">           <span class="pub-type">${esc(p.type)}</span>           <a class="pub-doi" href="${esc(p.url)}" target="_blank" rel="noreferrer">DOI</a>         </div>       </article>`)
-.join('');
+@media (max-width: 700px) {
+  .contact-extra {
+    width: 100%;
+  }
 }
-
-function timelineItem(item) {
-const points = item.points || (item.point ? [item.point] : []);
-
-```
-return `<article class="timeline-item reveal">
-  <div class="timeline-top">
-    <div>
-      <h3>${esc(item.role || item.title || '')}</h3>
-      <p>${esc(item.org || item.organization || item.company || '')}</p>
-    </div>
-    <span>${esc(item.period || '')}</span>
-  </div>
-  <ul>
-    ${points.map(p => `<li>${esc(p)}</li>`).join('')}
-  </ul>
-</article>`;
-```
-
-}
-
-function renderExperience() {
-$('#experienceList').innerHTML = data.experience.map(timelineItem).join('');
-$('#leadershipList').innerHTML = data.leadership.map(timelineItem).join('');
-}
-
-function renderCerts() {
-$('#certGrid').innerHTML = data.certifications
-.map(c => `<a class="cert-card reveal" href="${esc(c.url)}" target="_blank" rel="noreferrer">
-        ${icons.cert}         <div>           <strong>${esc(c.title)}</strong>           <span>${esc(c.issuer)} · ${esc(c.date)}</span>         </div>       </a>`)
-.join('');
-}
-
-function initTheme() {
-const saved = localStorage.getItem('theme');
-if (saved) document.documentElement.dataset.theme = saved;
-
-```
-const label = () => {
-  $('#themeToggle').textContent = document.documentElement.dataset.theme === 'dark'
-    ? 'Light'
-    : 'Dark';
-};
-
-label();
-
-$('#themeToggle').addEventListener('click', () => {
-  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = next;
-  localStorage.setItem('theme', next);
-  label();
-});
-```
-
-}
-
-function initNav() {
-$('#navToggle').addEventListener('click', () => {
-const open = !document.body.classList.contains('nav-open');
-document.body.classList.toggle('nav-open', open);
-$('#navToggle').setAttribute('aria-expanded', String(open));
-});
-
-```
-$$('#navPanel a').forEach(a => {
-  a.addEventListener('click', () => document.body.classList.remove('nav-open'));
-});
-```
-
-}
-
-function initArchive() {
-$('#toggleArchive').addEventListener('click', () => {
-state.archiveOpen = !state.archiveOpen;
-$('#archivePanel').hidden = !state.archiveOpen;
-$('#toggleArchive').textContent = state.archiveOpen ? 'Hide Archive' : 'Show Archive';
-});
-
-```
-$('#projectSearch').addEventListener('input', e => {
-  state.query = e.target.value;
-  renderArchive();
-});
-
-$('#filterRow').addEventListener('click', e => {
-  const btn = e.target.closest('[data-category]');
-  if (!btn) return;
-
-  state.category = btn.dataset.category;
-
-  $$('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b === btn);
-  });
-
-  renderArchive();
-});
-```
-
-}
-
-function initReveal() {
-if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-$$('.reveal').forEach(el => el.classList.add('is-visible'));
-return;
-}
-
-```
-const io = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      io.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.08,
-  rootMargin: '0px 0px -46px 0px'
-});
-
-$$('.reveal').forEach(el => io.observe(el));
-```
-
-}
-
-function boot() {
-renderProfile();
-renderProjects();
-renderPublications();
-renderSkills();
-renderEducation();
-renderExperience();
-renderCerts();
-initTheme();
-initNav();
-initArchive();
-initReveal();
-$('#year').textContent = new Date().getFullYear();
-}
-
-document.readyState === 'loading'
-? document.addEventListener('DOMContentLoaded', boot)
-: boot();
-})();
