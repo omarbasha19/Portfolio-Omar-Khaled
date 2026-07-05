@@ -4,7 +4,7 @@ const portfolioData = {
     "role": "AI Engineer & Data Scientist",
     "location": "Alexandria, Egypt",
     "phone": "+201092001947",
-    "email": "obasha998@gmail.com",
+    "email": "omar.khaled.ai.engineering@gmail.com",
     "summary": "AI Engineer and Data Scientist focused on designing applied AI systems across machine learning, deep learning, computer vision, natural language processing, predictive analytics, and data visualization. I build research-backed solutions that connect models, data, software, and user-facing products.",
     "links": {
           "LinkedIn": "https://www.linkedin.com/in/omar-khaled-87378a2ba/",
